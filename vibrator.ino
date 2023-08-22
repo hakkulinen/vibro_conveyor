@@ -14,18 +14,13 @@ void setup() {
 }
 
 void loop() {
-  //seems to be a useless check, but whatever, I'll keep it in
-  if (num <= 0.0) {
-    num = 1.0;
-  }
-  if (num >= 200.0) {
-    num = 200.0;
-  }
+  //now it should keep the value with a constrain func, reading docs is very useful
+  num = constrain(num, 3, 200);
   //reading input from buttons, doing corresponding addition/subtraction
   if (digitalRead(SUBTRACTION_BUTTON_PIN) == HIGH) {
     num -= num / 50.0;
   }
-    if (digitalRead(ADDITION_BUTTON_PIN) == HIGH) {
+  if (digitalRead(ADDITION_BUTTON_PIN) == HIGH) {
     num += num / 50.0;
   }
   (int) num; //delay takes in an integer so we have to convert our num variable
